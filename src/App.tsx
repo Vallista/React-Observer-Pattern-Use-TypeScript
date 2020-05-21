@@ -5,7 +5,7 @@ import useTodo from './hooks/useTodo'
 import Todos from './components/Todos'
 
 const App = () => {
-  const { todoListCollection, addTodoList, addTodo } = useTodo()
+  const { todoListCollection, addTodoList, addTodo, allAddTodo } = useTodo()
 
   useEffect(() => {
     addTodoList()
@@ -18,7 +18,10 @@ const App = () => {
           <Todos todos={todoList} index={index + 1} addTodo={addTodo} />
         ))}
       </div>
-      <button className="button" onClick={addTodoList}>콜렉션 추가</button>
+      <div>
+        <button className="button" onClick={addTodoList}>콜렉션 추가</button>
+        <button className="button" onClick={() => { allAddTodo('전체 추가') }}>전체 추가</button>
+      </div>
     </div>
   )
 }

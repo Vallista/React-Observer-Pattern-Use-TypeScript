@@ -1,7 +1,8 @@
 import Todo from "./Todo"
-import { RemoveState, IRemovable } from './Removable';
+import { RemoveState, IRemovable } from './Removable'
+import { IObserver } from './Observer'
 
-class TodoList implements IRemovable {
+class TodoList implements IRemovable, IObserver {
   private readonly todos: Todo[]
   private removeState: RemoveState
 
@@ -11,6 +12,7 @@ class TodoList implements IRemovable {
 
     this.addTodo = this.addTodo.bind(this)
     this.remove = this.remove.bind(this)
+    this.notify = this.notify.bind(this)
   }
 
   getTodos() {
@@ -28,6 +30,10 @@ class TodoList implements IRemovable {
 
   getRemoveState() {
     return this.removeState
+  }
+
+  notify(message: string) {
+    this.addTodo(message)
   }
 }
 

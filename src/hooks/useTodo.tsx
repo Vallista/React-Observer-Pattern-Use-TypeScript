@@ -1,29 +1,43 @@
 import { useState } from 'react'
 import TodoList from '../models/TodoList'
 
+import { Subject } from '../models/Observer'
+
+const subject = new Subject()
+
 function useTodo() {
   const [todoListCollection, setTodoListCollection] = useState<TodoList[]>([])
 
-  const addTodoList = () => {
+  const reRender = (other: TodoList[] = []) => {
     setTodoListCollection(
-      [
-        ...todoListCollection,
-        new TodoList()
-      ]
+      [...todoListCollection, ...other]
     )
+  }
+
+  const addTodoList = () => {
+    const todoList = new TodoList()
+
+    reRender([todoList])
+    subject.registration(todoList)
+    console.log(subject)
   }
 
   const addTodo = (TodoList: TodoList, message: string) => {
     TodoList.addTodo(message)
-    setTodoListCollection(
-      [...todoListCollection]
-    )
+    reRender()
+  }
+
+  const allAddTodo = (message: string) => {
+    subject.notify(message)
+    console.log(subject)
+    reRender()
   }
 
   return {
     todoListCollection,
     addTodoList,
-    addTodo
+    addTodo,
+    allAddTodo
   }
 }
 
