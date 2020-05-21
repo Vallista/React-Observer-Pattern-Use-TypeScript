@@ -1,26 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react'
+import './App.css'
 
-function App() {
+import useTodo from './hooks/useTodo'
+import Todos from './components/Todos'
+
+const App = () => {
+  const { todoListCollection, addTodoList, addTodo } = useTodo()
+
+  useEffect(() => {
+    addTodoList()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="app">
+      <div className="collection">
+        {todoListCollection.map((todoList, index) => (
+          <Todos todos={todoList} index={index + 1} addTodo={addTodo} />
+        ))}
+      </div>
+      <button className="button" onClick={addTodoList}>콜렉션 추가</button>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

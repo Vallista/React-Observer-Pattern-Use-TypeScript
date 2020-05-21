@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "React Todo-list Typescript Observer Pattern",
+  "name": "React Todo-list Typescript Observer Pattern",
   "icons": [
     {
       "src": "favicon.ico",
