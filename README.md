@@ -40,6 +40,8 @@ Todo 하나에 대해서 렌더링 해주는 Component입니다
 
 Todo를 리스트형태로 들고 있으면서 출력해주는 Component입니다.
 
+---
+
 ### hooks
 
 모델과 레이아웃 컴포넌트를 Binding 해주는 MVC 기준으로 Controller에 해당하는 영역입니다.
@@ -49,6 +51,8 @@ Todo를 리스트형태로 들고 있으면서 출력해주는 Component입니�
 React Hooks를 사용하여 만든 커스텀 훅입니다.
 
 내부에서 TodoListCollection을 상태로 갖고있어, 해당 리스트에 Class 객체가 생성되어 들어갑니다.
+
+---
 
 ### models
 
@@ -73,6 +77,8 @@ Todo를 추상화 한 클래스입니다.
 TodoList 클래스입니다.
 
 TodoList를 추상화 한 클래스입니다.
+
+---
 
 ### utils
 
