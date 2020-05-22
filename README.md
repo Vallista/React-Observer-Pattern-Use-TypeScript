@@ -6,7 +6,7 @@
 
 ## Preview
 
-![1](https://github.com/Vallista/React-Observer-Pattern-Use-TypeScript/blob/master/screenshots/1.gif?raw=true)
+![1](https://github.com/Vallista/React-Observer-Pattern-Use-TypeScript/blob/master/screenshots/2.gif?raw=true)
 
 ## Ideation
 
