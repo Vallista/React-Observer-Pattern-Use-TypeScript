@@ -1,44 +1,75 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Observer Pattern Use TypeScript In React
 
-## Available Scripts
+리액트에서 타입스크립트를 사용해 옵저버 패턴을 구현한 프로젝트 입니다.
 
-In the project directory, you can run:
+예시는 Todo List를 사용하였습니다.
 
-### `yarn start`
+## Installation & Launch
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```sh
+$ npm install
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+# use Yarn
+$ yarn
+```
 
-### `yarn test`
+```sh
+$ npm run start
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# use Yarn
+$ yarn start
+```
 
-### `yarn build`
+## Folder Structure
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+폴더 구조는 심플하게 components, hooks, models, utils로 이루어져 있습니다.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### components
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+레이아웃 컴포넌트가 담긴 폴더입니다.
 
-### `yarn eject`
+**Todo.tsx**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Todo 하나에 대해서 렌더링 해주는 Component입니다
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Todos.tsx**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Todo를 리스트형태로 들고 있으면서 출력해주는 Component입니다.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### hooks
 
-## Learn More
+모델과 레이아웃 컴포넌트를 Binding 해주는 MVC 기준으로 Controller에 해당하는 영역입니다.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**useTodo.tsx**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+React Hooks를 사용하여 만든 커스텀 훅입니다.
+
+내부에서 TodoListCollection을 상태로 갖고있어, 해당 리스트에 Class 객체가 생성되어 들어갑니다.
+
+### models
+
+프로젝트에 쓰이는 interface와 class를 갖고 있는 폴더입니다.
+
+**Observer.ts**
+
+옵저버 패턴에 사용되는 인터페이스, 클래스들 입니다.
+
+**Removable.ts**
+
+삭제할 때 사용되는 인터페이스, 클래스들 입니다.
+
+**Todo.ts**
+
+Todo 클래스입니다.
+
+Todo를 추상화 한 클래스입니다.
+
+**TodoList.ts**
+
+TodoList 클래스입니다.
+
+TodoList를 추상화 한 클래스입니다.
+
+### utils
+
+심심해서 만든 숫자를 한글로 바꿔주는 함수를 담고 있습니다.
