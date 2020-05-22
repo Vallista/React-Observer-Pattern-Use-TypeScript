@@ -4,6 +4,10 @@
 
 예시는 Todo List를 사용하였습니다.
 
+## Preview
+
+![1](https://github.com/Vallista/React-Observer-Pattern-Use-TypeScript/blob/master/screenshots/1.gif?raw=true)
+
 ## Installation & Launch
 
 ```sh
