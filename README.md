@@ -8,6 +8,28 @@
 
 ![1](https://github.com/Vallista/React-Observer-Pattern-Use-TypeScript/blob/master/screenshots/1.gif?raw=true)
 
+## Ideation
+
+전체 추가와 전체 삭제 코드를 보면 옵저버 패턴으로 구현되어 있습니다.
+
+**models/Observer.ts**
+
+IObserver 인터페이스를 implements 받은 대상을 Subject에서 has-a 형태로 갖습니다.
+
+<br/>
+
+**models/TodoList.ts**
+
+TodoList.ts는 IObserver를 implements 합니다. 그렇기에 언제든지 Subject에 등록 될 수 있습니다.
+
+<br/>
+
+**hooks/useTodo.tsx**
+
+addTodoList 함수에서 보면, TodoList를 추가할 때마다 생성한 Subject 객체에 등록합니다.
+
+allAddTodo와 allRemoveTodo에서 Observer에게 지시합니다.
+
 ## Installation & Launch
 
 ```sh
