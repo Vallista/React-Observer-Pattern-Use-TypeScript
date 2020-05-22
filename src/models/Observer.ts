@@ -1,5 +1,6 @@
 export interface IObserver {
-  notify(message: string): void
+  notifyAddTodo(message: string): void
+  notifyRemoveTodo(): void
 }
 
 export class Subject {
@@ -13,9 +14,15 @@ export class Subject {
     this.observerCollection.push(observer)
   }
 
-  notify(message: string) {
+  notifyAddTodo(message: string) {
     this.observerCollection.forEach((observer) => {
-      observer.notify(message)
+      observer.notifyAddTodo(message)
+    })
+  }
+
+  notifyRemoveTodo() {
+    this.observerCollection.forEach((observer) => {
+      observer.notifyRemoveTodo()
     })
   }
 }

@@ -10,16 +10,17 @@ class TodoList implements IRemovable, IObserver {
     this.todos = [new Todo('테스트')]
     this.removeState = RemoveState.IDLE
 
-    this.addTodo = this.addTodo.bind(this)
+    this.add = this.add.bind(this)
     this.remove = this.remove.bind(this)
-    this.notify = this.notify.bind(this)
+    this.notifyAddTodo = this.notifyAddTodo.bind(this)
+    this.notifyRemoveTodo = this.notifyRemoveTodo.bind(this)
   }
 
   getTodos() {
     return this.todos.filter((todo) => todo.getRemoveState() !== RemoveState.REMOVE)
   }
 
-  addTodo(message: string) {
+  add(message: string) {
     this.todos.push(new Todo(message))
   }
 
@@ -32,8 +33,12 @@ class TodoList implements IRemovable, IObserver {
     return this.removeState
   }
 
-  notify(message: string) {
-    this.addTodo(message)
+  notifyAddTodo(message: string) {
+    this.add(message)
+  }
+
+  notifyRemoveTodo() {
+    this.remove()
   }
 }
 

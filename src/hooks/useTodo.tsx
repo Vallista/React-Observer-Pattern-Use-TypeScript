@@ -23,21 +23,28 @@ function useTodo() {
   }
 
   const addTodo = (TodoList: TodoList, message: string) => {
-    TodoList.addTodo(message)
+    TodoList.add(message)
     reRender()
   }
 
   const allAddTodo = (message: string) => {
-    subject.notify(message)
-    console.log(subject)
+    subject.notifyAddTodo(message)
     reRender()
+  }
+
+  const allRemoveTodo = () => {
+    if (window.confirm('정말 삭제하시겠습니까?')) {
+      subject.notifyRemoveTodo()
+      reRender()
+    }
   }
 
   return {
     todoListCollection,
     addTodoList,
     addTodo,
-    allAddTodo
+    allAddTodo,
+    allRemoveTodo
   }
 }
 
