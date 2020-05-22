@@ -17,7 +17,7 @@ const Todos: React.FC<IProps> = ({ todos, index, addTodo }) => {
     <div className="todos">
       <h1 className="todos-title">{convertNumberToKorean(index)}</h1>
       <div className="todos-wrapper">
-        {todos.getTodos().map((todo) => <Todo message={todo.getMessage()} />)}
+        {todos.getTodos().map((todo, idx) => <Todo message={todo.getMessage()} key={idx} />)}
       </div>
       <button className="button bottom-absolute" onClick={
         () => { addTodo(todos, `${todos.getTodos().length} 번째 테스트`) }

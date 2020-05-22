@@ -15,7 +15,7 @@ const App = () => {
     <div id="app">
       <div className="collection">
         {todoListCollection.map((todoList, index) => (
-          <Todos todos={todoList} index={index + 1} addTodo={addTodo} />
+          <Todos todos={todoList} index={index + 1} addTodo={addTodo} key={index} />
         ))}
       </div>
       <div>

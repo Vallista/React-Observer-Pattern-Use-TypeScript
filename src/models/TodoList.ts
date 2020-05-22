@@ -38,7 +38,9 @@ class TodoList implements IRemovable, IObserver {
   }
 
   notifyRemoveTodo() {
-    this.remove()
+    this.todos.forEach((todo) => {
+      todo.remove()
+    })
   }
 }
 
